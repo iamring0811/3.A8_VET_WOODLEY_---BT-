@@ -1,0 +1,108 @@
+
+
+PRJ = DFI6
+INIT = startupSD
+MAIN = main
+CM1 = Init
+CM2 = UART
+CM3 = LCD
+CM4 = Touch
+CM5 = Flash
+CM6 = RESM
+CM7 = EEP
+CM8 = MEAS
+CM9 = COM
+CM10 = PARA
+CM11 = sysadj
+CM12 = DSP
+
+#### Destination path Definition ####
+SRC=.
+INC=.\INC
+OBJ=.\obj
+ERR=.\err
+BIN=.
+
+#### ARM tool Definition ####
+ARMLINK= C:\ADS\bin\armlink
+ARMASM = C:\ADS\BIN\armasm
+ARMCC  = C:\ADS\BIN\armcc
+                        
+# RAM
+LFLAGS = -ro-base 0xA0000000 -rw-base 0xA0400000 -elf -map -xref -list $(SRC)\list.txt -first $(INIT).o(Init)
+
+# ROM
+#LFLAGS = -ro-base 0x80000000 -rw-base 0xA0400000 -elf -map -xref -list $(SRC)\list.txt -first $(INIT).o(Init)
+
+
+## 디버그 모드시에 사용
+AFLAGS = -li -g -apcs /noswst -cpu ARM720T -fpu None
+CFLAGS = -c -g+ -li -apcs /noswst -cpu ARM720T -Ec
+
+## 릴리즈 모드시에 사용
+#AFLAGS = -li -apcs /noswst -cpu ARM720T -fpu None
+#CFLAGS = -c  -li -apcs /noswst -cpu ARM720T  -Ec
+
+#### Object combine Definition ####
+OBJS =  $(OBJ)\$(MAIN).o $(OBJ)\$(INIT).o $(OBJ)\$(CM1).o \
+        $(OBJ)\$(CM2).o  $(OBJ)\$(CM3).o  $(OBJ)\$(CM4).o \
+        $(OBJ)\$(CM5).o  $(OBJ)\$(CM6).o  $(OBJ)\$(CM7).o \
+        $(OBJ)\$(CM8).o  $(OBJ)\$(CM9).o  $(OBJ)\$(CM10).o \
+        $(OBJ)\$(CM11).o $(OBJ)\$(CM12).o 
+
+#### Armmaker command line option ####
+all: $(PRJ).elf
+
+$(PRJ).elf : $(OBJS) 
+	$(ARMLINK) $(LFLAGS) -o $(BIN)\$(PRJ).axf $(OBJS)
+	
+clean:
+	del $(OBJ)\*.o
+	del $(ERR)\*.err
+
+$(OBJ)\$(INIT).o : $(SRC)\$(INIT).s $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMASM) $(AFLAGS) $(SRC)\$(INIT).s -o $(OBJ)\$(INIT).o -Errors $(ERR)\$(INIT).err
+
+$(OBJ)\$(MAIN).o : $(SRC)\$(MAIN).c $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(MAIN).c -o $(OBJ)\$(MAIN).o -Errors $(ERR)\$(MAIN).err
+ 
+$(OBJ)\$(CM1).o : $(SRC)\$(CM1).c $(INC)\$(CM1).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM1).c -o $(OBJ)\$(CM1).o -Errors $(ERR)\$(CM1).err
+
+$(OBJ)\$(CM2).o : $(SRC)\$(CM2).c $(INC)\$(CM2).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM2).c -o $(OBJ)\$(CM2).o -Errors $(ERR)\$(CM2).err
+
+$(OBJ)\$(CM3).o : $(SRC)\$(CM3).c $(INC)\$(CM3).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM3).c -o $(OBJ)\$(CM3).o -Errors $(ERR)\$(CM3).err
+	
+$(OBJ)\$(CM4).o : $(SRC)\$(CM4).c $(INC)\$(CM4).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM4).c -o $(OBJ)\$(CM4).o -Errors $(ERR)\$(CM4).err
+
+$(OBJ)\$(CM5).o : $(SRC)\$(CM5).c $(INC)\$(CM5).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM5).c -o $(OBJ)\$(CM5).o -Errors $(ERR)\$(CM5).err
+
+$(OBJ)\$(CM6).o : $(SRC)\$(CM6).c $(INC)\$(CM6).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM6).c -o $(OBJ)\$(CM6).o -Errors $(ERR)\$(CM6).err
+
+$(OBJ)\$(CM7).o : $(SRC)\$(CM7).c $(INC)\$(CM7).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM7).c -o $(OBJ)\$(CM7).o -Errors $(ERR)\$(CM7).err
+
+$(OBJ)\$(CM8).o : $(SRC)\$(CM8).c $(INC)\$(CM8).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM8).c -o $(OBJ)\$(CM8).o -Errors $(ERR)\$(CM8).err
+
+$(OBJ)\$(CM9).o : $(SRC)\$(CM9).c $(INC)\$(CM9).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM9).c -o $(OBJ)\$(CM9).o -Errors $(ERR)\$(CM9).err
+
+$(OBJ)\$(CM10).o : $(SRC)\$(CM10).c $(INC)\$(CM10).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM10).c -o $(OBJ)\$(CM10).o -Errors $(ERR)\$(CM10).err
+
+$(OBJ)\$(CM11).o : $(SRC)\$(CM11).c $(INC)\$(CM11).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM11).c -o $(OBJ)\$(CM11).o -Errors $(ERR)\$(CM11).err
+
+$(OBJ)\$(CM12).o : $(SRC)\$(CM12).c $(INC)\$(CM12).h $(INC)\init.h $(INC)\pin.h makefile
+    $(ARMCC) $(CFLAGS) $(SRC)\$(CM12).c -o $(OBJ)\$(CM12).o -Errors $(ERR)\$(CM12).err
+
+#$(OBJ)\$(CM13).o : $(SRC)\$(CM13).c $(INC)\$(CM13).h $(INC)\init.h $(INC)\pin.h makefile
+#    $(ARMCC) $(CFLAGS) $(SRC)\$(CM13).c -o $(OBJ)\$(CM13).o -Errors $(ERR)\$(CM13).err
+
+

@@ -1,0 +1,181 @@
+
+typedef   	unsigned int   				u32;
+typedef   	unsigned short 				u16;
+typedef   	unsigned char  				u8; 
+typedef   	unsigned int   				U32;
+typedef   	unsigned short 				U16;
+typedef   	unsigned char  				U8; 
+typedef   	int            				s32;
+typedef   	short int      				s16;
+typedef   	signed char    				s8; 
+typedef		signed char					CHAR;
+typedef		signed int					INT;
+typedef		unsigned int				LONG;
+typedef		unsigned char				BYTE;
+typedef		unsigned short				WORD;
+typedef		unsigned int				QUAD;
+
+//#define	cli()	__asm {mrs r0,CPSR;orr r0,r0,0xc0;msr CPSR_cxsf,r0};
+#define	cli()	VICIntEnable=0
+//#define	sti()	__asm {mrs r0,CPSR;bic r0,r0,0xc0;msr CPSR_cxsf,r0};
+#define	sti()	VICIntEnable = 1 << 0x04
+
+#define SUCCESS 0
+#define FAIL -1
+#define OK   0
+#define NG   -1
+//typedef		enum { FALSE, TRUE }		BOOL;
+
+// 하드웨어적인 핀 설정
+/* Input/Output pin 할당 */
+					//    10987654 32109876 54321098 76543210
+#define DSIO	   	BIN32(00000001,00000000,00000000,00000000)		//P0.24 I/O
+#define DSCK	   	BIN32(00000010,00000000,00000000,00000000)		//P0.25 out
+#define DS_EN	   	BIN32(00000100,00000000,00000000,00000000)		//P0.26 out Lo:Enable
+#define CE24	   	BIN32(00000010,00000000,00000000,00000000)		//P2.25 out
+#define DO24_IN	   	BIN32(00000100,00000000,00000000,00000000)		//P3.26 in
+#define WP24	   	BIN32(00000010,00000000,00000000,00000000)		//P3.25 out
+#define DI24	   	BIN32(00000100,00000000,00000000,00000000)		//P2.26 out
+#define CK24	   	BIN32(00000001,00000000,00000000,00000000)		//P3.24 out
+
+#define SM_CH1   	BIN32(00000000,10000000,00000000,00000000)		//P3.23 out Hi:On
+#define SM_CH2   	BIN32(00000000,00001000,00000000,00000000)		//P2.19 out
+#define SM_CH3   	BIN32(00000000,00001000,00000000,00000000)		//P1.19 out
+#define SM_CH4   	BIN32(00000000,00000000,01000000,00000000)		//P0.14 out
+
+#define LED_R    	BIN32(00000000,00000100,00000000,00000000)		//P3.18 out Lo:On
+#define LED_G    	BIN32(00000000,00000000,00000000,10000000)		//P1.07 out
+#define LCD_BK	 	BIN32(00000000,00000000,10000000,00000000)		//P2.15 out Hi:On
+#define BUZZ 		BIN32(00000000,00000100,00000000,00000000)		//P1.18 out Hi:On
+
+#define DSW_B1  	BIN32(00000000,00000000,00000000,00000001)		//P1.00 IN
+#define DSW_B2  	BIN32(00000000,10000000,00000000,00000000)		//P3.23 IN
+#define DSW_B3 		BIN32(00000000,00000000,00000000,00000010)		//P1.01 IN
+#define DSW_B4	 	BIN32(00000000,00000000,00000000,00010000)		//P1.04 IN
+
+#define AD_CLK   	BIN32(00000000,00000000,00000100,00000000)		//P1.10 out
+#define AD_DAT   	BIN32(00000000,00000000,00000010,00000000)		//P1.09 IN
+#define AD_EN   	BIN32(00000000,00000000,00000001,00000000)		//P1.08 out Lo:Enable
+#define SENS_BKIN  	BIN32(00000000,00000000,00000000,01000000)		//P0.06 IN
+#define SENS_GOIN  	BIN32(00000000,00000000,00000000,10000000)		//P0.07 IN
+#define SENS_PW   	BIN32(00000000,00000000,00000001,00000000)		//P0.08 out Hi:On
+#define SW_TESTIN  	BIN32(00000000,10000000,00000000,00000000)		//P2.23 IN
+
+#define RGB_RED   	BIN32(00000000,00000000,01000000,00000000)		//P1.14 out
+#define RGB_GRN   	BIN32(00000000,00000000,10000000,00000000)		//P1.16 out
+#define RGB_BLU   	BIN32(00000000,00000001,00000000,00000000)		//P1.15 out
+//#define RGB_GRN   	BIN32(00000000,00000001,00000000,00000000)		//P1.16 out
+//#define RGB_BLU   	BIN32(00000000,00000000,10000000,00000000)		//P1.15 out
+
+#define LBL_EN   	BIN32(00010000,00000000,00000000,00000000)		//P4.28 out Lo:On LCD
+#define RSTBLU   	BIN32(00100000,00000000,00000000,00000000)		//P4.29 out Hi:Reset Bluetooth
+
+#define ATSXP   	BIN32(00000000,00100000,00000000,00000000)		//P0.21 out
+#define ATSYN   	BIN32(00000000,01000000,00000000,00000000)		//P0.22 out
+#define ATSXN   	BIN32(00000000,00000000,00000100,00000000)		//P2.10 out
+#define ATSYP   	BIN32(00000000,00000000,00001000,00000000)		//P2.11 out
+#define LOW_V   	BIN32(00000000,10000000,00000000,00000000)		//P0.23 In
+//20150519 start
+#define DAC0	   	BIN32(00000000,00000000,00000000,00000010)		//P2.01 out
+#define DAC1	   	BIN32(00000000,00000000,00000000,00100000)		//P1.05 out
+#define DAC2	   	BIN32(00000000,00000000,00010000,00000010)		//P1.12 out
+#define DAC3	   	BIN32(00000000,00001000,00000000,00000010)		//P3.19 out
+//20150519 end
+#define P0OUT	(DSIO|DSCK|DS_EN|SM_CH4|SENS_PW|ATSXP|ATSYN)
+//20150519 start
+//#define P1OUT	(SM_CH3|LED_G|BUZZ|AD_CLK|AD_EN|RGB_RED|RGB_GRN|RGB_BLU)
+#define P1OUT	(SM_CH3|LED_G|BUZZ|AD_CLK|AD_EN)
+//20150519 end
+#define P2OUT	(CE24|DI24|SM_CH2|LCD_BK|ATSXN|ATSYP)
+#define P3OUT	(WP24|CK24|SM_CH1|LED_R)
+#define P4OUT	(LBL_EN|RSTBLU)
+
+//===============================================================================================
+//===============================================================================================
+//===============================================================================================
+
+#define     DSIO_HI()			FIO0SET = DSIO	 	// 	
+#define     DSIO_LO()			FIO0CLR = DSIO	 	// 	
+#define     DSIO_READ		   (FIO0PIN & DSIO)   	// 
+#define     DSCK_HI()			FIO0SET = DSCK	 	//
+#define     DSCK_LO()			FIO0CLR = DSCK	 	//
+#define     DS_DISABLE()		FIO0SET = DS_EN	 	//
+#define     DS_ENABLE()			FIO0CLR = DS_EN 	//
+
+#define     CE24_HI()			FIO2SET = CE24	 	//
+#define     CE24_LO()			FIO2CLR = CE24	 	//
+#define     DO24			   (FIO3PIN & DO24_IN) 	//
+#define     WP24_HI()			FIO3SET = WP24	 	//
+#define     WP24_LO()			FIO3CLR = WP24	 	//
+#define     DI24_HI()			FIO2SET = DI24	 	//
+#define     DI24_LO()			FIO2CLR = DI24	 	//
+#define     CK24_HI()			FIO3SET = CK24	 	//
+#define     CK24_LO()			FIO3CLR = CK24	 	//
+
+#define     SM_CH1_OFF()		FIO3CLR = SM_CH1 	//
+#define     SM_CH1_ON()			FIO3SET = SM_CH1 	//
+#define     SM_CH2_OFF()		FIO2CLR = SM_CH2 	//
+#define     SM_CH2_ON()			FIO2SET = SM_CH2 	//
+#define     SM_CH3_OFF()		FIO1CLR = SM_CH3 	//
+#define     SM_CH3_ON()			FIO1SET = SM_CH3 	//
+#define     SM_CH4_OFF()		FIO0CLR = SM_CH4 	//
+#define     SM_CH4_ON()			FIO0SET = SM_CH4 	//
+
+#define     LED_RED_OFF()		FIO3SET = LED_R	 	//
+#define     LED_RED_ON()		FIO3CLR = LED_R 	//
+//#define     LED_RED_BAR()		
+#define     LED_GRN_OFF()		FIO1SET = LED_G 	//
+#define     LED_GRN_ON()		FIO1CLR = LED_G 	//
+//#define     LED_GRN_BAR()		
+#define     BUZZ_HI()			FIO1SET = BUZZ	 	//
+#define     BUZZ_LO()			FIO1CLR = BUZZ	 	//
+
+#define     LCD_BK_ON()			FIO2SET = LCD_BK 	//
+#define     LBLEN_ENABLE()		FIO4CLR = LBL_EN 	//
+
+#define     DSW1			   (FIO1PIN & DSW_B1)   //
+#define     PCB_TESTx		   DSW1   	//20150519
+#define     DSW2			   (FIO3PIN & DSW_B2)   //
+#define     meas_type		   (FIO3PIN & DSW_B2)   //
+#define     DSW3			   (FIO1PIN & DSW_B3)   //
+//#define     isKorean		   (FIO1PIN & DSW_B3)   //
+#define     DSW4			   (FIO1PIN & DSW_B4)   //
+#define     PCB_TEST4		   (FIO1PIN & DSW_B4)   	//
+//20150519 start
+#define     DAC0_READ		   (FIO2PIN & DAC0)		//
+#define     DAC0_LO()			FIO2CLR = DAC0 		//
+#define     DAC1_LO()			FIO1CLR = DAC1 		//
+#define     DAC2_LO()			FIO1CLR = DAC2 		//
+#define     DAC3_LO()			FIO3CLR = DAC3 		//
+#define     DAC0_HI()			FIO2SET = DAC0	 	//
+#define     DAC1_HI()			FIO1SET = DAC1	 	//
+#define     DAC2_HI()			FIO1SET = DAC2	 	//
+#define     DAC3_HI()			FIO3SET = DAC3	 	//
+//20150519 end
+#define     AD_CLK_LO()			FIO1CLR = AD_CLK 	//
+#define     AD_CLK_HI()			FIO1SET = AD_CLK 	//
+#define     AD_DAT_LO()			FIO1CLR = AD_DAT 	//
+#define     AD_DAT_HI()			FIO1SET = AD_DAT	//
+#define 	AD_DAT_READ		   (FIO1PIN & AD_DAT)  	//
+#define 	AD_ENABLE()			FIO1CLR = AD_EN 	//
+#define 	AD_DISABLE()		FIO1SET = AD_EN 	//
+
+#define     SENS_BK		   	   (FIO0PIN & SENS_BKIN)  	//
+#define     SENS_GO		   	   (FIO0PIN & SENS_GOIN)  	//
+#define     SENS_OFF()			FIO0CLR = SENS_PW	  	//
+#define     SENS_ON()			FIO0SET = SENS_PW	  	//
+#define     SW_TEST			   (FIO2PIN & SW_TESTIN)	//
+
+//#define     RGB_ALL_OFF()		FIO1SET = (RGB_RED|RGB_GRN|RGB_BLU)	 	//2015-06-09 오전 8:37:12
+#define     EN_BLUE()			FIO4CLR = RSTBLU	 	//
+#define     DN_BLUE()			FIO4SET = RSTBLU	 	//
+
+#define     ATSXP_HI()			FIO0SET = ATSXP	 	//
+#define     ATSXP_LO()			FIO0CLR = ATSXP	 	//
+#define     ATSYN_HI()			FIO0SET = ATSYN	 	//
+#define     ATSYN_LO()			FIO0CLR = ATSYN	 	//
+#define     ATSXN_HI()			FIO2SET = ATSXN	 	//
+#define     ATSXN_LO()			FIO2CLR = ATSXN	 	//
+#define     ATSYP_HI()			FIO2SET = ATSYP	 	//
+#define     ATSYP_LO()			FIO2CLR = ATSYP	 	//
+

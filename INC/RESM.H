@@ -1,0 +1,182 @@
+
+/******	 RTC Control  ************/
+//bit 15 14	13 12 11 10	 9	8  7  6	 5	4  3  2	 1	0	// 0:Output, 1:Input
+//	   x  O	 I	x  x  ?	 ?	?  x  O	 I	x  x  O	 O	I/O
+//	   1  0	 1	1  1  1	 1	1  1  0	 1	1  1  0	 0	1or0
+#define	rtc_read()		FIO0DIR &= ~DSIO
+#define	rtc_write()		FIO0DIR |=  DSIO
+
+/******************************
+	MAP	OF RAM IN DS1302
+******************************/
+#define	RTC_SECOND		0x00
+#define	RTC_MINUTE		0x01
+#define	RTC_HOUR		0x02
+#define	RTC_DAY			0x03
+#define	RTC_MONTH		0x04
+#define	RTC_WEEK		0x05
+#define	RTC_YEAR		0x06
+#define	RTC_DSWP		0x07
+#define	RTC_TCRV		0x08
+
+#define	RTCend			0x3F
+
+#define	en1302()	 DS_ENABLE()	//DS1302 enable	(RST_PIN)
+#define	dn1302()	 DS_DISABLE()	//DS1302 disable(RST_PIN)
+
+#define	clr_dat02()	 DSIO_LO()		//DS1302 data low out
+#define	set_dat02()	 DSIO_HI()		//DS1302 data high out
+#define	read_dat02() DSIO_READ		//DS1302 data read
+#define	clr_clk02()	 DSCK_LO()		//CLOCK	LOW
+#define	set_clk02()	 DSCK_HI()		//CLOCK	HIGH
+
+/*************************	stemMotor.H  **********************/
+#define JUNJIN	1
+#define WHOJIN	0
+#define SM_DLY	9		//tmFlag(41.6666uS) x SM_DLY = stepingMotor 1 step time
+#define SM_CW	1
+#define SM_CCW	2
+//#define MAX_TICK 1900
+
+/*************************	Ext.Flash  **********************/
+#define FREAD	0x03		//Read Data
+#define FBTPR	0x02		//Byte Write
+//#define FWRPR	0xAD		//Word Write
+#define FRDSR	0x05		//Read Status
+#define FEWSR	0x50		//Enable Write Status Reg.
+#define FWRSR	0x01		//Write Status Reg.
+#define FWREN	0x06		//Write Enable
+//#define FWRDI	0x04		//Write Disable
+#define FRDID	0x90		//Read I.D.
+#define FERASE	0x20		//4K Bytes Erase
+#define FJDRD	0x9F		//Jedec Read I.D.
+
+#define SYS_TEST_ADR	    0x07000
+//#define SYS_TEST_ADR		2044 * 1024
+
+//#define RESULT_ADR			0x100000		//size=256*2000
+#define RESULT_ADR			0x005000		//size=256*2000
+#define RESULT_END			0x1FA000
+
+
+#ifdef	_RTC_C_
+/*************************	RTC  **********************/
+unsigned char setyear,setmonth,setday;			// ��¥ ���� ������
+unsigned char sethour,setmin,setsec;			// ��¥ ���� ������
+unsigned char year,month,day,hour,min,sec;		// ��¥ ���� ������
+unsigned char time_flag;						// �ð��� �ٲ����.
+unsigned char testrtc;
+
+void writeRTC(unsigned char add, unsigned char sd);
+u8   readRTC(unsigned char add);
+void sendRTC(unsigned char add);
+void sendAll_RTC(void);
+u8   dataRTC(void);
+void initRTC(void);
+u8   bcd2bin2(unsigned char ch);
+void readAllRTC(void);
+void out_time(void);
+void readTime(void);
+
+/*************************	stepMotor  **********************/
+u32 smRotCnt,smDlyDat;		//smRotCnt:stpMotor step count
+u8  SmStep, SmDir, Cycle;
+u32 SmCnt;
+
+void stepMotorOff(void);
+void stepMotor(unsigned int rotate);
+void delay_stepM(unsigned int dl);
+void stepM_init(void);
+void step_test(void);
+void home_tray(void);
+void go_CW(u16 cnt);
+void go_CCW(u16 cnt);
+void set_CW_TICK(u32 tick);
+void set_CCW_TICK(u32 tick);
+void set_CW(u32 msec);
+void set_CCW(u32 msec);
+
+
+/*************************	MPC3201  **********************/
+u16 mpc3201(void);
+
+/*********************** SST25VF016B **********************/
+u8	flash_buff[0x1000];
+u8	flash_read[0x1000];
+u8	SFID, dayCount;
+#define S25V	0x55
+#define F25L	0xAA
+#define EN25	0xA5
+#define F25L32	0xAC
+#define XX25	0x00
+
+void test_flash(u8 tno);
+void writeFR4k(u32 adr, u16 size);
+void readFR4k(u32 add, u16 size);
+u8 read24(u16 adr);
+u16 read24w(u16 adr);
+void write24(u16 adr, u8 dat);
+void write24w(u16 adr, u16 dat);
+void system_write(u32 adr, u16 size);
+void system_wr4k(u32 adr);
+short read_jedec(void);
+void dayInMonth(u16 year,u8 month);
+
+#else
+
+/*************************	RTC  **********************/
+extern unsigned char setyear,setmonth,setday;			// ��¥ ���� ������
+extern unsigned char sethour,setmin,setsec;				// ��¥ ���� ������
+extern unsigned char year,month,day,hour,min,sec;		// ��¥ ���� ������
+extern unsigned char time_flag;
+
+extern void writeRTC(unsigned char add, unsigned char sd);
+extern u8   readRTC(unsigned char add);
+extern void sendRTC(unsigned char add);
+extern void sendAll_RTC(void);
+extern u8   dataRTC(void);
+extern void initRTC(void);
+extern u8   bcd2bin2(unsigned char ch);
+extern void readAllRTC(void);
+extern void out_time(void);
+extern void readTime(void);
+
+/*************************	stemMotor.H  **********************/
+extern u32 smRotCnt,smDlyDat;		//smRotCnt:stpMotor step count
+extern u8  SmStep, SmDir, Cycle;
+extern u32 SmCnt;
+
+extern void stepMotorOff(void);
+extern void stepMotor(unsigned int rotate);
+extern void delay_stepM(unsigned int dl);
+extern void stepM_init(void);
+extern void step_test(void);
+extern void set_CW_TICK(u32 tick);
+extern void set_CCW_TICK(u32 tick);
+extern void home_tray(void);
+extern void go_CW(u16 cnt);
+extern void go_CCW(u16 cnt);
+extern void set_CW(u32 msec);
+extern void set_CCW(u32 msec);
+
+/*************************	MPC3201  **********************/
+extern u16 mpc3201(void);
+
+/*********************** SST25VF016B **********************/
+extern u8	flash_buff[0x1000];
+extern u8	flash_read[0x1000];
+extern u8	SFID,dayCount;
+
+extern void test_flash(u8 tno);
+extern void writeFR4k(u32 adr, u16 size);
+extern void readFR4k(u32 add, u16 size);
+extern u8 read24(u16 adr);
+extern u16 read24w(u16 adr);
+extern void write24(u16 adr, u8 dat);
+extern void write24w(u16 adr, u16 dat);
+extern void system_write(u32 adr, u16 size);
+extern void system_wr4k(u32 adr);
+extern short read_jedec(void);
+extern void dayInMonth(u16 year,u8 month);
+#endif
+

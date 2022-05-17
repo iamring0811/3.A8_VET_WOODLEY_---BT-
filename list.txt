@@ -1,0 +1,716 @@
+
+================================================================================
+
+Section Cross References
+
+    main.o(.text) refers to LCD.o(.text) for LCDbmpxx
+    main.o(.text) refers to Init.o(.text) for GpioInit
+    main.o(.text) refers to RESM.o(.text) for stepM_init
+    main.o(.text) refers to UART.o(.text) for Uart_Init_All
+    main.o(.text) refers to sysadj.o(.text) for chk_auto_balance
+    main.o(.text) refers to DSP.o(.text) for dsp_first
+    main.o(.text) refers to EEP.o(.text) for initEEP
+    main.o(.text) refers to Touch.o(.text) for power_on
+    main.o(.text) refers to Flash.o(.text) for prog_decode
+    main.o(.text) refers to Touch.o(.bss) for flag_clean
+    main.o(.text) refers to LCD.o(.bss) for top_str
+    main.o(.text) refers to COM.o(.bss) for rx3_wait
+    main.o(.text) refers to Flash.o(.bss) for rx3_step
+    main.o(.text) refers to Init.o(.bss) for ProgVer
+    main.o(.text) refers to EEP.o(.bss) for SYS_ID
+    main.o(.text) refers to sysadj.o(.bss) for BALANCE_AUTO
+    startupSD.o(Init) refers to main.o(.text) for Main
+    startupSD.o(Init) refers to startupSD.o(MyStacks) for SvcStackSpace
+    startupSD.o(Init) refers to startupSD.o(Stacks) for StackUsr
+    startupSD.o(Init) refers to startupSD.o(Heap) for bottom_of_heap
+    startupSD.o(Init) refers to startupSD.o(HeapTop) for top_of_heap
+    startupSD.o(Init) refers to startupSD.o(StackBottom) for bottom_of_Stacks
+    Init.o(.text) refers to sysadj.o(.text) for out_dac
+    Init.o(.text) refers to RESM.o(.text) for mpc3201
+    Init.o(.text) refers to Touch.o(.text) for key_scan
+    Init.o(.text) refers to Init.o(.bss) for .bss$2
+    Init.o(.text) refers to RESM.o(.bss) for SmStep
+    Init.o(.text) refers to sysadj.o(.bss) for BALANCE_AUTO
+    Init.o(.text) refers to UART.o(.bss) for txw0
+    Init.o(.text) refers to rt_sdiv.o(.text) for __rt_sdiv
+    Init.o(.text) refers to UART.o(.text) for printf0
+    Init.o(.text) refers to Touch.o(.bss) for state
+    Init.o(.text) refers to Flash.o(.bss) for flag_flash
+    Init.o(.text) refers to COM.o(.bss) for rx3_cnt
+    Init.o(.text) refers to EEP.o(.bss) for SOUND_FLAG
+    UART.o(.text) refers to rt_sdiv.o(.text) for __rt_sdiv
+    UART.o(.text) refers to vsprintf.o(.text) for vsprintf
+    UART.o(.text) refers to UART.o(.bss) for .bss$2
+    UART.o(.text) refers to EEP.o(.bss) for BAUD_FLAG
+    UART.o(.text) refers to Init.o(.text) for delay_ms
+    UART.o(.text) refers to Flash.o(.bss) for flag_flash
+    LCD.o(.text) refers to LCD.o(.constdata) for .constdata$1
+    LCD.o(.text) refers to LCD.o(.bss) for .bss$2
+    LCD.o(.text) refers to vsprintf.o(.text) for vsprintf
+    LCD.o(.text) refers to DSP.o(.bss) for bmp_head
+    LCD.o(.text) refers to rt_udiv.o(.text) for __rt_udiv
+    LCD.o(.text) refers to EEP.o(.bss) for tmp_userid
+    LCD.o(.text) refers to UART.o(.text) for printf0
+    LCD.o(.text) refers to _sprintf.o(.text) for _sprintf
+    LCD.o(.text) refers to Flash.o(.bss) for STORE_RAM
+    LCD.o(.data) refers to LCD.o(.constdata) for .constdata$1
+    Touch.o(.text) refers to Init.o(.text) for key_buzzer
+    Touch.o(.text) refers to DSP.o(.text) for dsp_poff
+    Touch.o(.text) refers to RESM.o(.text) for home_tray
+    Touch.o(.text) refers to LCD.o(.text) for LCDbmpxx
+    Touch.o(.text) refers to UART.o(.text) for printf0
+    Touch.o(.text) refers to EEP.o(.text) for key_buzzer2
+    Touch.o(.text) refers to Touch.o(.bss) for .bss$2
+    Touch.o(.text) refers to Init.o(.bss) for tm_10ms
+    Touch.o(.text) refers to EEP.o(.bss) for DOUBLE_FLAG
+    Touch.o(.text) refers to RESM.o(.bss) for SmDir
+    Touch.o(.text) refers to MEAS.o(.text) for run_measure
+    Touch.o(.text) refers to LCD.o(.bss) for top_str
+    Touch.o(.text) refers to Touch.o(.constdata) for .constdata$1
+    Touch.o(.text) refers to rt_udiv.o(.text) for __rt_udiv
+    Touch.o(.text) refers to sysadj.o(.text) for system_check
+    Touch.o(.text) refers to sysadj.o(.bss) for BALANCE_AUTO
+    Touch.o(.text) refers to COM.o(.text) for com_msg
+    Touch.o(.text) refers to MEAS.o(.bss) for PARA_NEW
+    Touch.o(.text) refers to Flash.o(.bss) for STORE_RAM
+    Touch.o(.text) refers to UART.o(.bss) for txw0
+    Flash.o(.text) refers to UART.o(.text) for printfx
+    Flash.o(.text) refers to Flash.o(.bss) for .bss$2
+    Flash.o(.text) refers to DSP.o(.text) for dsp_prog_ng
+    Flash.o(.text) refers to Init.o(.text) for delay_ms
+    Flash.o(.text) refers to COM.o(.bss) for rx3_wait
+    Flash.o(.text) refers to UART.o(.bss) for rxw3
+    Flash.o(.text) refers to COM.o(.text) for system_decode
+    Flash.o(.text) refers to LCD.o(.text) for bin2hexasc4
+    Flash.o(.text) refers to EEP.o(.bss) for cmdbuff
+    Flash.o(.text) refers to MEAS.o(.bss) for MEASyear
+    Flash.o(.text) refers to RESM.o(.text) for readFR4k
+    Flash.o(.text) refers to RESM.o(.bss) for flash_read
+    RESM.o(.text) refers to UART.o(.text) for printf0
+    RESM.o(.text) refers to RESM.o(.bss) for .bss$2
+    RESM.o(.text) refers to rt_udiv.o(.text) for __rt_udiv
+    RESM.o(.text) refers to LCD.o(.text) for time_copy
+    RESM.o(.text) refers to Touch.o(.bss) for state
+    RESM.o(.text) refers to LCD.o(.bss) for top_str
+    RESM.o(.text) refers to Init.o(.bss) for tm_10ms
+    RESM.o(.text) refers to Init.o(.text) for delay_us
+    RESM.o(.text) refers to Flash.o(.bss) for STORE_RAM
+    EEP.o(.text) refers to UART.o(.text) for printf0
+    EEP.o(.text) refers to Flash.o(.bss) for STORE_RAM
+    EEP.o(.text) refers to EEP.o(.bss) for .bss$2
+    EEP.o(.text) refers to RESM.o(.text) for read24
+    EEP.o(.text) refers to Touch.o(.bss) for tmp_idno
+    EEP.o(.text) refers to MEAS.o(.bss) for result_mode
+    EEP.o(.text) refers to Init.o(.text) for key_buzzer
+    EEP.o(.text) refers to sysadj.o(.text) for set_default_RGB
+    EEP.o(.text) refers to Flash.o(.text) for backup_write
+    EEP.o(.text) refers to PARA.o(.bss) for ar_item_ram
+    EEP.o(.text) refers to LCD.o(.text) for msg16
+    EEP.o(.text) refers to PARA.o(.data) for ar_item_new
+    EEP.o(.text) refers to RESM.o(.bss) for flash_read
+    MEAS.o(.text) refers to rt_udiv.o(.text) for __rt_udiv
+    MEAS.o(.text) refers to UART.o(.text) for printf0
+    MEAS.o(.text) refers to Init.o(.bss) for buffRED1
+    MEAS.o(.text) refers to MEAS.o(.bss) for .bss$2
+    MEAS.o(.text) refers to EEP.o(.bss) for DOUBLE_FLAG
+    MEAS.o(.text) refers to sysadj.o(.bss) for blkRED
+    MEAS.o(.text) refers to fflt.o(x$fpl$fflt) for _ffltu
+    MEAS.o(.text) refers to f2d.o(x$fpl$f2d) for _f2d
+    MEAS.o(.text) refers to ddiv.o(x$fpl$ddiv) for _ddiv
+    MEAS.o(.text) refers to d2f.o(x$fpl$d2f) for _d2f
+    MEAS.o(.text) refers to faddsub.o(x$fpl$fadd) for _frsb
+    MEAS.o(.text) refers to fmul_mull.o(x$fpl$fmul) for _fmul
+    MEAS.o(.text) refers to dmul_mull.o(x$fpl$dmul) for _dmul
+    MEAS.o(.text) refers to feqf.o(x$fpl$feqf) for _fcmpeq
+    MEAS.o(.text) refers to fdiv.o(x$fpl$fdiv) for _fdiv
+    MEAS.o(.text) refers to exp.o(.text) for __softfp_exp
+    MEAS.o(.text) refers to deqf.o(x$fpl$deqf) for _dcmpeq
+    MEAS.o(.text) refers to fleqf.o(x$fpl$fleqf) for _fcmple
+    MEAS.o(.text) refers to MEAS.o(.constdata) for .constdata$1
+    MEAS.o(.text) refers to Init.o(.text) for key_buzzer
+    MEAS.o(.text) refers to rt_memcpy.o(.text) for __rt_memcpy
+    MEAS.o(.text) refers to LCD.o(.text) for bin2bcdasc
+    MEAS.o(.text) refers to PARA.o(.bss) for si_item_ram
+    MEAS.o(.text) refers to rt_sdiv.o(.text) for __rt_sdiv
+    MEAS.o(.text) refers to DSP.o(.text) for dsp_measure_time
+    MEAS.o(.text) refers to RESM.o(.text) for stepMotorOff
+    MEAS.o(.text) refers to LCD.o(.bss) for RASTNO
+    MEAS.o(.text) refers to COM.o(.text) for send_meas_step
+    MEAS.o(.text) refers to RESM.o(.bss) for year
+    MEAS.o(.text) refers to sysadj.o(.text) for run_adjust
+    MEAS.o(.text) refers to Flash.o(.text) for store_result
+    MEAS.o(.text) refers to EEP.o(.text) for write_id_chksum
+    MEAS.o(.text) refers to Touch.o(.text) for key_clear
+    MEAS.o(.text) refers to Touch.o(.bss) for state
+    COM.o(.text) refers to UART.o(.text) for printf0
+    COM.o(.text) refers to LCD.o(.text) for bcd2bin
+    COM.o(.text) refers to RESM.o(.text) for write24w
+    COM.o(.text) refers to EEP.o(.text) for write_userid
+    COM.o(.text) refers to EEP.o(.bss) for cmdbuff
+    COM.o(.text) refers to Flash.o(.bss) for STORE_RAM
+    COM.o(.text) refers to Init.o(.text) for key_buzzer
+    COM.o(.text) refers to COM.o(.bss) for .bss$2
+    COM.o(.text) refers to COM.o(.data) for Version
+    COM.o(.text) refers to RESM.o(.bss) for setyear
+    COM.o(.text) refers to Init.o(.bss) for spanRED
+    COM.o(.text) refers to MEAS.o(.bss) for buffRESULT
+    COM.o(.text) refers to DSP.o(.text) for dsp_standby
+    COM.o(.text) refers to Touch.o(.text) for tsw_start
+    COM.o(.text) refers to Touch.o(.bss) for state
+    PARA.o(.data) refers to PARA.o(.constdata) for .constdata$1
+    sysadj.o(.text) refers to Init.o(.text) for RGB_RED_ON
+    sysadj.o(.text) refers to RESM.o(.text) for mpc3201
+    sysadj.o(.text) refers to EEP.o(.text) for write_id_chksum
+    sysadj.o(.text) refers to rt_memcpy.o(.text) for __rt_memcpy
+    sysadj.o(.text) refers to LCD.o(.text) for bin2bcdasc4
+    sysadj.o(.text) refers to sysadj.o(.bss) for .bss$2
+    sysadj.o(.text) refers to Init.o(.bss) for flag_dac
+    sysadj.o(.text) refers to MEAS.o(.bss) for MEASyear
+    sysadj.o(.text) refers to UART.o(.text) for printf0
+    sysadj.o(.text) refers to _sprintf.o(.text) for _sprintf
+    sysadj.o(.text) refers to UART.o(.bss) for txr2
+    sysadj.o(.text) refers to RESM.o(.bss) for year
+    sysadj.o(.text) refers to EEP.o(.bss) for SYS_ID
+    sysadj.o(.text) refers to COM.o(.text) for send_meas_step
+    sysadj.o(.text) refers to rt_sdiv.o(.text) for __rt_sdiv
+    sysadj.o(.text) refers to MEAS.o(.text) for xchg_rgb
+    sysadj.o(.text) refers to Touch.o(.text) for key_clear
+    sysadj.o(.text) refers to rt_udiv.o(.text) for __rt_udiv
+    sysadj.o(.text) refers to LCD.o(.bss) for RASTNO
+    DSP.o(.text) refers to rt_udiv.o(.text) for __rt_udiv
+    DSP.o(.text) refers to LCD.o(.text) for bin2bcdasc
+    DSP.o(.text) refers to RESM.o(.text) for out_time
+    DSP.o(.text) refers to _sprintf.o(.text) for _sprintf
+    DSP.o(.text) refers to Touch.o(.bss) for pr_ref
+    DSP.o(.text) refers to LCD.o(.bss) for top_str
+    DSP.o(.text) refers to EEP.o(.bss) for SPEED_FLAG
+    DSP.o(.text) refers to EEP.o(.text) for key_buzzer3
+    DSP.o(.text) refers to MEAS.o(.bss) for STRIP_INFO
+    DSP.o(.text) refers to Init.o(.bss) for char_buff
+    DSP.o(.text) refers to dflt.o(x$fpl$dflt) for _dfltu
+    DSP.o(.text) refers to dmul_mull.o(x$fpl$dmul) for _dmul
+    DSP.o(.text) refers to daddsub.o(x$fpl$dadd) for _drsb
+    DSP.o(.text) refers to dfixu.o(x$fpl$dfixu) for _dfixu
+    DSP.o(.text) refers to ddiv.o(x$fpl$ddiv) for _ddiv
+    DSP.o(.text) refers to DSP.o(.bss) for .bss$2
+    DSP.o(.text) refers to fflt.o(x$fpl$fflt) for _ffltu
+    DSP.o(.text) refers to ffixu.o(x$fpl$ffixu) for _ffixu
+    DSP.o(.text) refers to DSP.o(.constdata) for .constdata$1
+    DSP.o(.text) refers to PARA.o(.bss) for ar_item_ram
+    DSP.o(.text) refers to Flash.o(.bss) for STORE_RAM
+    DSP.o(.text) refers to Init.o(.text) for delay_ms
+    DSP.o(.text) refers to UART.o(.text) for printf0
+    DSP.o(.text) refers to RESM.o(.bss) for setday
+    DSP.o(.text) refers to MEAS.o(.constdata) for alb_item
+    _sprintf.o(.text) refers to __vfpntf.o(.text) for __vfprintf
+    _sprintf.o(.text) refers to _sputc.o(.text) for _sputc
+    rt_memcpy.o(.text) refers to rt_memcpy_w.o(.text) for _memcpy_lastbytes
+    rt_sdiv.o(.text) refers to rt_div0.o(.text) for __rt_div0
+    rt_udiv.o(.text) refers to rt_div0.o(.text) for __rt_div0
+    vsprintf.o(.text) refers to __vfpntf.o(.text) for __vfprintf
+    vsprintf.o(.text) refers to _sputc.o(.text) for _sputc
+    vsprintf.o(.text) refers (Special) to printf1.o(x$fpl$printf1) for __lib_sel_fp_printf
+    d2f.o(x$fpl$d2f) refers to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    d2f.o(x$fpl$d2f) refers to trapv.o(x$fpl$trapveneer) for _fp_trapveneer
+    d2f.o(x$fpl$d2f) refers to funder.o(x$fpl$funder) for __funder
+    d2f.o(x$fpl$d2f) refers to except.o(x$fpl$exception) for __fpl_exception
+    d2f.o(x$fpl$d2f) refers to dcheck1.o(x$fpl$dcheck1) for __fpl_dcheck_NaN1
+    daddsub.o(x$fpl$dadd) refers to except.o(x$fpl$exception) for __fpl_exception
+    daddsub.o(x$fpl$dadd) refers to dcheck.o(x$fpl$dcheck) for __fpl_dcheck_NaN2
+    daddsub.o(x$fpl$dadd) refers to dunder.o(x$fpl$dunder) for __dunder
+    daddsub.o(x$fpl$dadd) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    ddiv.o(x$fpl$ddiv) refers to dunder.o(x$fpl$dunder) for __dunder
+    ddiv.o(x$fpl$ddiv) refers to except.o(x$fpl$exception) for __fpl_exception
+    ddiv.o(x$fpl$ddiv) refers to dcheck.o(x$fpl$dcheck) for __fpl_dcheck_NaN2
+    ddiv.o(x$fpl$ddiv) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    deqf.o(x$fpl$deqf) refers to dcmpin.o(x$fpl$dcmpinfnan) for __fpl_dcmp_InfNaN
+    dfixu.o(x$fpl$dfixu) refers to dcheck1.o(x$fpl$dcheck1) for __fpl_dcheck_NaN1
+    dfixu.o(x$fpl$dfixu) refers to except.o(x$fpl$exception) for __fpl_exception
+    dfixu.o(x$fpl$dfixu) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    dfixu.o(x$fpl$dfixur) refers to dcheck1.o(x$fpl$dcheck1) for __fpl_dcheck_NaN1
+    dfixu.o(x$fpl$dfixur) refers to except.o(x$fpl$exception) for __fpl_exception
+    dfixu.o(x$fpl$dfixur) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    dmul_mull.o(x$fpl$dmul) refers to dunder.o(x$fpl$dunder) for __dunder
+    dmul_mull.o(x$fpl$dmul) refers to except.o(x$fpl$exception) for __fpl_exception
+    dmul_mull.o(x$fpl$dmul) refers to dcheck.o(x$fpl$dcheck) for __fpl_dcheck_NaN2
+    dmul_mull.o(x$fpl$dmul) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    f2d.o(x$fpl$f2d) refers to dflt.o(x$fpl$dflt) for __dflt_normalise
+    f2d.o(x$fpl$f2d) refers to fcheck1.o(x$fpl$fcheck1) for __fpl_fcheck_NaN1
+    f2d.o(x$fpl$f2d) refers (Special) to except.o(x$fpl$exception) for __fpl_exception
+    faddsub.o(x$fpl$fadd) refers to except.o(x$fpl$exception) for __fpl_exception
+    faddsub.o(x$fpl$fadd) refers to funder.o(x$fpl$funder) for __funder_d
+    faddsub.o(x$fpl$fadd) refers to fcheck.o(x$fpl$fcheck) for __fpl_fcheck_NaN2
+    faddsub.o(x$fpl$fadd) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    fdiv.o(x$fpl$fdiv) refers to funder.o(x$fpl$funder) for __funder
+    fdiv.o(x$fpl$fdiv) refers to except.o(x$fpl$exception) for __fpl_exception
+    fdiv.o(x$fpl$fdiv) refers to fnorm2.o(x$fpl$fnorm2) for __fpl_normalise2
+    fdiv.o(x$fpl$fdiv) refers to fcheck.o(x$fpl$fcheck) for __fpl_fcheck_NaN2
+    fdiv.o(x$fpl$fdiv) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    feqf.o(x$fpl$feqf) refers to fcmpin.o(x$fpl$dcmpinfnan) for __fpl_fcmp_InfNaN
+    ffixu.o(x$fpl$ffixu) refers to fcheck1.o(x$fpl$fcheck1) for __fpl_fcheck_NaN1
+    ffixu.o(x$fpl$ffixu) refers to except.o(x$fpl$exception) for __fpl_exception
+    ffixu.o(x$fpl$ffixu) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    ffixu.o(x$fpl$ffixur) refers to fcheck1.o(x$fpl$fcheck1) for __fpl_fcheck_NaN1
+    ffixu.o(x$fpl$ffixur) refers to except.o(x$fpl$exception) for __fpl_exception
+    ffixu.o(x$fpl$ffixur) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    fflt.o(x$fpl$fflt) refers (Special) to except.o(x$fpl$exception) for __fpl_exception
+    fflt.o(x$fpl$fflt) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    fleqf.o(x$fpl$fleqf) refers to fcmpin.o(x$fpl$dcmpinfnan) for __fpl_fcmp_InfNaN
+    fmul_mull.o(x$fpl$fmul) refers to funder.o(x$fpl$funder) for __funder
+    fmul_mull.o(x$fpl$fmul) refers to except.o(x$fpl$exception) for __fpl_exception
+    fmul_mull.o(x$fpl$fmul) refers to fnorm2.o(x$fpl$fnorm2) for __fpl_normalise2
+    fmul_mull.o(x$fpl$fmul) refers to fcheck.o(x$fpl$fcheck) for __fpl_fcheck_NaN2
+    fmul_mull.o(x$fpl$fmul) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    exp.o(.text) refers to dgeqf.o(x$fpl$dgeqf) for _dcmpge
+    exp.o(.text) refers to _rserrno.o(.text) for __set_errno
+    exp.o(.text) refers to dleqf.o(x$fpl$dleqf) for _dcmple
+    exp.o(.text) refers to daddsub.o(x$fpl$dadd) for _dsub
+    exp.o(.text) refers to dmul_mull.o(x$fpl$dmul) for _dmul
+    exp.o(.text) refers to dfix.o(x$fpl$dfix) for _dfix
+    exp.o(.text) refers to dflt.o(x$fpl$dflt) for _dflt
+    exp.o(.text) refers to poly.o(.text) for __kernel_poly
+    exp.o(.text) refers to ddiv.o(x$fpl$ddiv) for _drdiv
+    exp.o(.text) refers to qnan.o(.constdata) for __mathlib_zero
+    exp.o(.text) refers to exp.o(.constdata) for .constdata$1
+    __vfpntf.o(.text) refers to strlen.o(.text) for strlen
+    __vfpntf.o(.text) refers to printf1.o(x$fpl$printf1) for _fp_display_gate
+    __vfpntf.o(.text) refers to lludiv10.o(.text) for _ll_udiv10
+    __vfpntf.o(.text) refers to rtudiv10.o(.text) for __rt_udiv10
+    _rserrno.o(.text) refers to rt_errno_addr.o(.text) for __rt_errno_addr
+    rt_div0.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    rt_fp_status_addr.o(.text) refers to libspace.o(.text) for __user_libspace
+    printf1.o(x$fpl$printf1) refers to _fp_disp.o(.text) for _fp_display
+    dcheck.o(x$fpl$dcheck) refers to retnan.o(x$fpl$retnan) for __fpl_return_NaN
+    dcheck.o(x$fpl$dcheck) refers to except.o(x$fpl$exception) for __fpl_exception
+    dcheck1.o(x$fpl$dcheck1) refers to except.o(x$fpl$exception) for __fpl_exception
+    dcheck1.o(x$fpl$dcheck1) refers to retnan.o(x$fpl$retnan) for __fpl_return_NaN
+    dcmpin.o(x$fpl$dcmpinfnan) refers to except.o(x$fpl$exception) for __fpl_exception
+    dcmpin.o(x$fpl$dcmpinfnan) refers to dcheck.o(x$fpl$dcheck) for __fpl_dcheck_NaN2
+    dfix.o(x$fpl$dfix) refers to dcheck1.o(x$fpl$dcheck1) for __fpl_dcheck_NaN1
+    dfix.o(x$fpl$dfix) refers to except.o(x$fpl$exception) for __fpl_exception
+    dfix.o(x$fpl$dfix) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    dfix.o(x$fpl$dfixr) refers to dcheck1.o(x$fpl$dcheck1) for __fpl_dcheck_NaN1
+    dfix.o(x$fpl$dfixr) refers to except.o(x$fpl$exception) for __fpl_exception
+    dfix.o(x$fpl$dfixr) refers (Special) to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    dgeqf.o(x$fpl$dgeqf) refers to dcmpin.o(x$fpl$dcmpinfnan) for __fpl_dcmp_InfNaN
+    dleqf.o(x$fpl$dleqf) refers to dcmpin.o(x$fpl$dcmpinfnan) for __fpl_dcmp_InfNaN
+    dunder.o(x$fpl$dunder) refers to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    dunder.o(x$fpl$dunder) refers to trapv.o(x$fpl$trapveneer) for _fp_trapveneer
+    dunder.o(x$fpl$dunder) refers (Special) to except.o(x$fpl$exception) for __fpl_exception
+    except.o(x$fpl$exception) refers to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    except.o(x$fpl$exception) refers to trapv.o(x$fpl$trapveneer) for _fp_trapveneer
+    except.o(x$fpl$exception) refers to retnan.o(x$fpl$retnan) for __fpl_return_NaN
+    fcheck.o(x$fpl$fcheck) refers to except.o(x$fpl$exception) for __fpl_exception
+    fcheck.o(x$fpl$fcheck) refers to retnan.o(x$fpl$retnan) for __fpl_return_NaN
+    fcheck1.o(x$fpl$fcheck1) refers to except.o(x$fpl$exception) for __fpl_exception
+    fcheck1.o(x$fpl$fcheck1) refers to retnan.o(x$fpl$retnan) for __fpl_return_NaN
+    fcmpin.o(x$fpl$dcmpinfnan) refers to except.o(x$fpl$exception) for __fpl_exception
+    fcmpin.o(x$fpl$dcmpinfnan) refers to fcheck.o(x$fpl$fcheck) for __fpl_fcheck_NaN2
+    funder.o(x$fpl$funder) refers to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    funder.o(x$fpl$funder) refers to except.o(x$fpl$exception) for __fpl_exception
+    funder.o(x$fpl$funder) refers to trapv.o(x$fpl$trapveneer) for _fp_trapveneer
+    trapv.o(x$fpl$trapveneer) refers to _fptrap.o(.text) for _fp_trap
+    trapv.o(x$fpl$trapveneer) refers to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    poly.o(.text) refers to dmul_mull.o(x$fpl$dmul) for _dmul
+    poly.o(.text) refers to daddsub.o(x$fpl$dadd) for _dadd
+    _fp_disp.o(.text) refers to dtoi.o(.text) for __support_dtoi
+    _fp_disp.o(.text) refers to istatus.o(x$fpl$ieeestatus) for __ieee_status
+    _fp_disp.o(.text) refers to bigflt0.o(.text) for _btod_etento
+    _fp_disp.o(.text) refers to btod.o(CL$$btodstuff) for _btod_d2e
+    _fp_disp.o(.text) refers to lludiv10.o(.text) for _ll_udiv10
+    _fp_disp.o(.text) refers to libspace.o(.text) for __user_libspace
+    _fp_disp.o(.text) refers to classify.o(.text) for __mathlib_classify
+    _fp_disp.o(.text) refers to rt_sdiv.o(.text) for __rt_sdiv
+    _fp_disp.o(.text) refers to rtsdiv10.o(.text) for __rt_sdiv10
+    _fp_disp.o(.text) refers (Special) to lc_numeric_c.o(.text) for _get_lc_numeric
+    _fptrap.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rt_errno_addr.o(.text) refers to libspace.o(.text) for __user_libspace
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    retnan.o(x$fpl$retnan) refers to trapv.o(x$fpl$trapveneer) for __fpl_cmpreturn
+    __raise.o(.text) refers to defsig.o(.text) for __default_signal_handler
+    bigflt0.o(.text) refers to rt_sdiv.o(.text) for __rt_sdiv
+    bigflt0.o(.text) refers to btod.o(CL$$btodstuff) for _btod_emul
+    bigflt0.o(.text) refers to bigflt0.o(.constdata) for .constdata$1
+    btod.o(CL$$btodstuff) refers to istatus.o(x$fpl$ieeestatus) for __32__ieee_status
+    lc_numeric_c.o(.text) refers to strcmp.o(.text) for strcmp
+    lc_numeric_c.o(.text) refers to lc_numeric_c.o(.constdata) for .constdata$1
+    sys_exit.o(.text) refers to use_semi.o(.text) for __I_use_semihosting_swi
+    istatus.o(x$fpl$ieeestatus) refers to rt_fp_status_addr.o(.text) for __rt_fp_status_addr
+    dtoi.o(.text) refers to dmul_mull.o(x$fpl$dmul) for _dmul
+    defsig.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    defsig.o(.text) refers to defsig.o(.constdata) for .constdata$1
+    sys_wrch.o(.text) refers (Special) to use_semi.o(.text) for __I_use_semihosting_swi
+
+
+================================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0xa0000000
+
+  Load Region LR_1 (Base: 0xa0000000, Size: 0x00027210, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER_RO (Base: 0xa0000000, Size: 0x00025f64, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr  Idx  E Section Name        Object
+
+    0xa0000000   0x00000138   Code   RO    70   * Init                startupSD.o
+    0xa0000138   0x00000458   Code   RO     1     .text               main.o
+    0xa0000590   0x00001958   Code   RO    79     .text               Init.o
+    0xa0001ee8   0x00001258   Code   RO   111     .text               UART.o
+    0xa0003140   0x00002fa4   Code   RO   135     .text               LCD.o
+    0xa00060e4   0x00004350   Code   RO   161     .text               Touch.o
+    0xa000a434   0x00001d6c   Code   RO   180     .text               Flash.o
+    0xa000c1a0   0x00002a10   Code   RO   197     .text               RESM.o
+    0xa000ebb0   0x00002518   Code   RO   215     .text               EEP.o
+    0xa00110c8   0x00003be8   Code   RO   228     .text               MEAS.o
+    0xa0014cb0   0x000024d4   Code   RO   248     .text               COM.o
+    0xa0017184   0x00001818   Code   RO   270     .text               sysadj.o
+    0xa001899c   0x00005398   Code   RO   284     .text               DSP.o
+    0xa001dd34   0x00000070   Code   RO   298     .text               _sprintf.o(c_a__un.l)
+    0xa001dda4   0x000000b4   Code   RO   300     .text               rt_memcpy.o(c_a__un.l)
+    0xa001de58   0x000000d4   Code   RO   302     .text               rt_sdiv.o(c_a__un.l)
+    0xa001df2c   0x000000c0   Code   RO   304     .text               rt_udiv.o(c_a__un.l)
+    0xa001dfec   0x00000058   Code   RO   306     .text               vsprintf.o(c_a__un.l)
+    0xa001e044   0x000003a8   Code   RO   340     .text               exp.o(m_a_pu.l)
+    0xa001e3ec   0x00000d38   Code   RO   343     .text               __vfpntf.o(c_a__un.l)
+    0xa001f124   0x00000024   Code   RO   345     .text               _rserrno.o(c_a__un.l)
+    0xa001f148   0x0000001c   Code   RO   347     .text               _sputc.o(c_a__un.l)
+    0xa001f164   0x0000000c   Code   RO   349     .text               rt_div0.o(c_a__un.l)
+    0xa001f170   0x00000010   Code   RO   351     .text               rt_fp_status_addr.o(c_a__un.l)
+    0xa001f180   0x0000006c   Code   RO   353     .text               rt_memcpy_w.o(c_a__un.l)
+    0xa001f1ec   0x0000015c   Code   RO   386     .text               poly.o(m_a_pu.l)
+    0xa001f348   0x00000924   Code   RO   389     .text               _fp_disp.o(c_a__un.l)
+    0xa001fc6c   0x00000060   Code   RO   391     .text               _fptrap.o(c_a__un.l)
+    0xa001fccc   0x0000000c   Code   RO   393     .text               libspace.o(c_a__un.l)
+    0xa001fcd8   0x00000098   Code   RO   396     .text               lludiv10.o(c_a__un.l)
+    0xa001fd70   0x0000000c   Code   RO   398     .text               rt_errno_addr.o(c_a__un.l)
+    0xa001fd7c   0x00000018   Code   RO   400     .text               rt_raise.o(c_a__un.l)
+    0xa001fd94   0x0000002c   Code   RO   402     .text               rtudiv10.o(c_a__un.l)
+    0xa001fdc0   0x00000068   Code   RO   404     .text               strlen.o(c_a__un.l)
+    0xa001fe28   0x00000064   Code   RO   408     .text               __raise.o(c_a__un.l)
+    0xa001fe8c   0x0000015c   Code   RO   410     .text               bigflt0.o(c_a__un.l)
+    0xa001ffe8   0x0000003c   Code   RO   415     .text               lc_numeric_c.o(c_a__un.l)
+    0xa0020024   0x00000040   Code   RO   418     .text               rtsdiv10.o(c_a__un.l)
+    0xa0020064   0x00000018   Code   RO   420     .text               sys_exit.o(c_a__un.l)
+    0xa002007c   0x00000048   Code   RO   424     .text               classify.o(m_a_pu.l)
+    0xa00200c4   0x00000054   Code   RO   426     .text               dtoi.o(m_a_pu.l)
+    0xa0020118   0x00000160   Code   RO   428     .text               defsig.o(c_a__un.l)
+    0xa0020278   0x000000a0   Code   RO   432     .text               strcmp.o(c_a__un.l)
+    0xa0020318   0x00000004   Code   RO   434     .text               use_semi.o(c_a__un.l)
+    0xa002031c   0x00000018   Code   RO   436     .text               sys_wrch.o(c_a__un.l)
+    0xa0020334   0x00000898   Code   RO   413     CL$$btodstuff       btod.o(c_a__un.l)
+    0xa0020bcc   0x000001b8   Code   RO   308     x$fpl$d2f           d2f.o(f_a_p.l)
+    0xa0020d84   0x0000049c   Code   RO   310     x$fpl$dadd          daddsub.o(f_a_p.l)
+    0xa0021220   0x00000040   Code   RO   357     x$fpl$dcheck        dcheck.o(f_a_p.l)
+    0xa0021260   0x00000018   Code   RO   359     x$fpl$dcheck1       dcheck1.o(f_a_p.l)
+    0xa0021278   0x00000068   Code   RO   361     x$fpl$dcmpinfnan    dcmpin.o(f_a_p.l)
+    0xa00212e0   0x0000004c   Code   RO   378     x$fpl$dcmpinfnan    fcmpin.o(f_a_p.l)
+    0xa002132c   0x000005b0   Code   RO   312     x$fpl$ddiv          ddiv.o(f_a_p.l)
+    0xa00218dc   0x00000080   Code   RO   314     x$fpl$deqf          deqf.o(f_a_p.l)
+    0xa002195c   0x000000a4   Code   RO   363     x$fpl$dfix          dfix.o(f_a_p.l)
+    0xa0021a00   0x000000a4   Code   RO   316     x$fpl$dfixu         dfixu.o(f_a_p.l)
+    0xa0021aa4   0x00000064   Code   RO   319     x$fpl$dflt          dflt.o(f_a_p.l)
+    0xa0021b08   0x00000080   Code   RO   366     x$fpl$dgeqf         dgeqf.o(f_a_p.l)
+    0xa0021b88   0x00000080   Code   RO   368     x$fpl$dleqf         dleqf.o(f_a_p.l)
+    0xa0021c08   0x000002b4   Code   RO   321     x$fpl$dmul          dmul_mull.o(f_a_p.l)
+    0xa0021ebc   0x00000230   Code   RO   370     x$fpl$dunder        dunder.o(f_a_p.l)
+    0xa00220ec   0x00000164   Code   RO   372     x$fpl$exception     except.o(f_a_p.l)
+    0xa0022250   0x00000068   Code   RO   323     x$fpl$f2d           f2d.o(f_a_p.l)
+    0xa00222b8   0x00000308   Code   RO   325     x$fpl$fadd          faddsub.o(f_a_p.l)
+    0xa00225c0   0x00000024   Code   RO   374     x$fpl$fcheck        fcheck.o(f_a_p.l)
+    0xa00225e4   0x00000018   Code   RO   376     x$fpl$fcheck1       fcheck1.o(f_a_p.l)
+    0xa00225fc   0x00000228   Code   RO   327     x$fpl$fdiv          fdiv.o(f_a_p.l)
+    0xa0022824   0x00000068   Code   RO   329     x$fpl$feqf          feqf.o(f_a_p.l)
+    0xa002288c   0x0000006c   Code   RO   331     x$fpl$ffixu         ffixu.o(f_a_p.l)
+    0xa00228f8   0x00000064   Code   RO   334     x$fpl$fflt          fflt.o(f_a_p.l)
+    0xa002295c   0x00000068   Code   RO   336     x$fpl$fleqf         fleqf.o(f_a_p.l)
+    0xa00229c4   0x00000128   Code   RO   338     x$fpl$fmul          fmul_mull.o(f_a_p.l)
+    0xa0022aec   0x00000094   Code   RO   380     x$fpl$fnorm2        fnorm2.o(f_a_p.l)
+    0xa0022b80   0x0000016c   Code   RO   382     x$fpl$funder        funder.o(f_a_p.l)
+    0xa0022cec   0x0000003c   Code   RO   422     x$fpl$ieeestatus    istatus.o(f_a_p.l)
+    0xa0022d28   0x00000004   Code   RO   355     x$fpl$printf1       printf1.o(f_a_p.l)
+    0xa0022d2c   0x00000098   Code   RO   406     x$fpl$retnan        retnan.o(f_a_p.l)
+    0xa0022dc4   0x000000a4   Code   RO   384     x$fpl$trapveneer    trapv.o(f_a_p.l)
+    0xa0022e68   0x00001522   Data   RO   137     .constdata          LCD.o
+    0xa002438a   0x00000560   Data   RO   162     .constdata          Touch.o
+    0xa00248ea   0x00000c9d   Data   RO   229     .constdata          MEAS.o
+    0xa0025587   0x00000321   Data   RO   263     .constdata          PARA.o
+    0xa00258a8   0x00000480   Data   RO   285     .constdata          DSP.o
+    0xa0025d28   0x00000058   Data   RO   341     .constdata          exp.o(m_a_pu.l)
+    0xa0025d80   0x00000008   Data   RO   388     .constdata          qnan.o(m_a_pu.l)
+    0xa0025d88   0x00000094   Data   RO   411     .constdata          bigflt0.o(c_a__un.l)
+    0xa0025e1c   0x0000001c   Data   RO   416     .constdata          lc_numeric_c.o(c_a__un.l)
+    0xa0025e38   0x0000012b   Data   RO   429     .constdata          defsig.o(c_a__un.l)
+
+
+    Execution Region ER_RW (Base: 0xa0400000, Size: 0x000012ac, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr  Idx  E Section Name        Object
+
+    0xa0400000   0x00000016   Data   RW   249     .data               COM.o
+    0xa0400016   0x00000002   PAD
+    0xa0400018   0x00001294   Data   RW   262     .data               PARA.o
+
+
+    Execution Region ER_ZI (Base: 0xa04012ac, Size: 0x00126254, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr  Idx  E Section Name        Object
+
+    0xa04012ac   0x000061a4   Zero   RW    80     .bss                Init.o
+    0xa0407450   0x0008012c   Zero   RW   112     .bss                UART.o
+    0xa048757c   0x00000170   Zero   RW   138     .bss                LCD.o
+    0xa04876ec   0x0000084c   Zero   RW   163     .bss                Touch.o
+    0xa0487f38   0x0005a01c   Zero   RW   181     .bss                Flash.o
+    0xa04e1f54   0x00002124   Zero   RW   198     .bss                RESM.o
+    0xa04e4078   0x00001058   Zero   RW   216     .bss                EEP.o
+    0xa04e50d0   0x000008f0   Zero   RW   230     .bss                MEAS.o
+    0xa04e59c0   0x00000008   Zero   RW   250     .bss                COM.o
+    0xa04e59c8   0x00000fc0   Zero   RW   264     .bss                PARA.o
+    0xa04e6988   0x00000016   Zero   RW   272     .bss                sysadj.o
+    0xa04e699e   0x00000601   Zero   RW   286     .bss                DSP.o
+    0xa04e6f9f   0x00000001   PAD
+    0xa04e6fa0   0x00000060   Zero   RW   394     .bss                libspace.o(c_a__un.l)
+    0xa04e7000   0x00010000   Zero   RW    72     Heap                startupSD.o
+    0xa04f7000   0x00010000   Zero   RW    74     HeapTop             startupSD.o
+    0xa0507000   0x00000500   Zero   RW    71     MyStacks            startupSD.o
+    0xa0507500   0x00010000   Zero   RW    73     StackBottom         startupSD.o
+    0xa0517500   0x00010000   Zero   RW    75     Stacks              startupSD.o
+
+
+
+  Load Region LR$$Debug (Base: 0x00000000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER$$Debug (Base: 0x00000000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr  Idx  E Section Name        Object
+
+    0x00000000   0x000003ec   Dbug   RW    10     .debug_abbrev       main.o
+    0x000003ec   0x00000010   Dbug   RW    78     .debug_abbrev       startupSD.o
+    0x00000000   0x00000074   Dbug   RW     9     .debug_frame        main.o
+    0x00000074   0x00000288   Dbug   RW    89     .debug_frame        Init.o
+    0x000002fc   0x00000380   Dbug   RW   121     .debug_frame        UART.o
+    0x0000067c   0x00000868   Dbug   RW   147     .debug_frame        LCD.o
+    0x00000ee4   0x00000574   Dbug   RW   172     .debug_frame        Touch.o
+    0x00001458   0x0000022c   Dbug   RW   190     .debug_frame        Flash.o
+    0x00001684   0x00000610   Dbug   RW   207     .debug_frame        RESM.o
+    0x00001c94   0x000003ac   Dbug   RW   225     .debug_frame        EEP.o
+    0x00002040   0x00000414   Dbug   RW   238     .debug_frame        MEAS.o
+    0x00002454   0x00000460   Dbug   RW   259     .debug_frame        COM.o
+    0x000028b4   0x000001a8   Dbug   RW   281     .debug_frame        sysadj.o
+    0x00002a5c   0x000007c8   Dbug   RW   295     .debug_frame        DSP.o
+    0x00003224   0x0000005c   Dbug   RW   299     .debug_frame        _sprintf.o(c_a__un.l)
+    0x00003280   0x0000003c   Dbug   RW   301     .debug_frame        rt_memcpy.o(c_a__un.l)
+    0x000032bc   0x00000044   Dbug   RW   303     .debug_frame        rt_sdiv.o(c_a__un.l)
+    0x00003300   0x00000044   Dbug   RW   305     .debug_frame        rt_udiv.o(c_a__un.l)
+    0x00003344   0x00000054   Dbug   RW   307     .debug_frame        vsprintf.o(c_a__un.l)
+    0x00003398   0x0000006c   Dbug   RW   309     .debug_frame        d2f.o(f_a_p.l)
+    0x00003404   0x00000160   Dbug   RW   311     .debug_frame        daddsub.o(f_a_p.l)
+    0x00003564   0x000000f0   Dbug   RW   313     .debug_frame        ddiv.o(f_a_p.l)
+    0x00003654   0x00000060   Dbug   RW   315     .debug_frame        deqf.o(f_a_p.l)
+    0x000036b4   0x00000074   Dbug   RW   318     .debug_frame        dfixu.o(f_a_p.l)
+    0x00003728   0x00000058   Dbug   RW   320     .debug_frame        dflt.o(f_a_p.l)
+    0x00003780   0x00000078   Dbug   RW   322     .debug_frame        dmul_mull.o(f_a_p.l)
+    0x000037f8   0x00000054   Dbug   RW   324     .debug_frame        f2d.o(f_a_p.l)
+    0x0000384c   0x000000e4   Dbug   RW   326     .debug_frame        faddsub.o(f_a_p.l)
+    0x00003930   0x0000007c   Dbug   RW   328     .debug_frame        fdiv.o(f_a_p.l)
+    0x000039ac   0x00000054   Dbug   RW   330     .debug_frame        feqf.o(f_a_p.l)
+    0x00003a00   0x00000064   Dbug   RW   333     .debug_frame        ffixu.o(f_a_p.l)
+    0x00003a64   0x00000058   Dbug   RW   335     .debug_frame        fflt.o(f_a_p.l)
+    0x00003abc   0x00000054   Dbug   RW   337     .debug_frame        fleqf.o(f_a_p.l)
+    0x00003b10   0x00000064   Dbug   RW   339     .debug_frame        fmul_mull.o(f_a_p.l)
+    0x00003b74   0x0000007c   Dbug   RW   342     .debug_frame        exp.o(m_a_pu.l)
+    0x00003bf0   0x000000b0   Dbug   RW   344     .debug_frame        __vfpntf.o(c_a__un.l)
+    0x00003ca0   0x00000068   Dbug   RW   346     .debug_frame        _rserrno.o(c_a__un.l)
+    0x00003d08   0x0000004c   Dbug   RW   348     .debug_frame        _sputc.o(c_a__un.l)
+    0x00003d54   0x0000003c   Dbug   RW   350     .debug_frame        rt_div0.o(c_a__un.l)
+    0x00003d90   0x0000004c   Dbug   RW   352     .debug_frame        rt_fp_status_addr.o(c_a__un.l)
+    0x00003ddc   0x00000054   Dbug   RW   354     .debug_frame        rt_memcpy_w.o(c_a__un.l)
+    0x00003e30   0x0000003c   Dbug   RW   356     .debug_frame        printf1.o(f_a_p.l)
+    0x00003e6c   0x00000054   Dbug   RW   358     .debug_frame        dcheck.o(f_a_p.l)
+    0x00003ec0   0x0000003c   Dbug   RW   360     .debug_frame        dcheck1.o(f_a_p.l)
+    0x00003efc   0x00000060   Dbug   RW   362     .debug_frame        dcmpin.o(f_a_p.l)
+    0x00003f5c   0x00000074   Dbug   RW   365     .debug_frame        dfix.o(f_a_p.l)
+    0x00003fd0   0x00000060   Dbug   RW   367     .debug_frame        dgeqf.o(f_a_p.l)
+    0x00004030   0x00000060   Dbug   RW   369     .debug_frame        dleqf.o(f_a_p.l)
+    0x00004090   0x000000a8   Dbug   RW   371     .debug_frame        dunder.o(f_a_p.l)
+    0x00004138   0x00000078   Dbug   RW   373     .debug_frame        except.o(f_a_p.l)
+    0x000041b0   0x0000003c   Dbug   RW   375     .debug_frame        fcheck.o(f_a_p.l)
+    0x000041ec   0x0000003c   Dbug   RW   377     .debug_frame        fcheck1.o(f_a_p.l)
+    0x00004228   0x00000050   Dbug   RW   379     .debug_frame        fcmpin.o(f_a_p.l)
+    0x00004278   0x00000044   Dbug   RW   381     .debug_frame        fnorm2.o(f_a_p.l)
+    0x000042bc   0x00000080   Dbug   RW   383     .debug_frame        funder.o(f_a_p.l)
+    0x0000433c   0x00000084   Dbug   RW   385     .debug_frame        trapv.o(f_a_p.l)
+    0x000043c0   0x00000060   Dbug   RW   387     .debug_frame        poly.o(m_a_pu.l)
+    0x00004420   0x00000134   Dbug   RW   390     .debug_frame        _fp_disp.o(c_a__un.l)
+    0x00004554   0x00000064   Dbug   RW   392     .debug_frame        _fptrap.o(c_a__un.l)
+    0x000045b8   0x00000044   Dbug   RW   395     .debug_frame        libspace.o(c_a__un.l)
+    0x000045fc   0x00000058   Dbug   RW   397     .debug_frame        lludiv10.o(c_a__un.l)
+    0x00004654   0x0000004c   Dbug   RW   399     .debug_frame        rt_errno_addr.o(c_a__un.l)
+    0x000046a0   0x00000050   Dbug   RW   401     .debug_frame        rt_raise.o(c_a__un.l)
+    0x000046f0   0x00000044   Dbug   RW   403     .debug_frame        rtudiv10.o(c_a__un.l)
+    0x00004734   0x0000003c   Dbug   RW   405     .debug_frame        strlen.o(c_a__un.l)
+    0x00004770   0x0000005c   Dbug   RW   407     .debug_frame        retnan.o(f_a_p.l)
+    0x000047cc   0x0000005c   Dbug   RW   409     .debug_frame        __raise.o(c_a__un.l)
+    0x00004828   0x00000080   Dbug   RW   412     .debug_frame        bigflt0.o(c_a__un.l)
+    0x000048a8   0x00000218   Dbug   RW   414     .debug_frame        btod.o(c_a__un.l)
+    0x00004ac0   0x0000004c   Dbug   RW   417     .debug_frame        lc_numeric_c.o(c_a__un.l)
+    0x00004b0c   0x00000044   Dbug   RW   419     .debug_frame        rtsdiv10.o(c_a__un.l)
+    0x00004b50   0x00000044   Dbug   RW   421     .debug_frame        sys_exit.o(c_a__un.l)
+    0x00004b94   0x00000050   Dbug   RW   423     .debug_frame        istatus.o(f_a_p.l)
+    0x00004be4   0x0000003c   Dbug   RW   425     .debug_frame        classify.o(m_a_pu.l)
+    0x00004c20   0x0000004c   Dbug   RW   427     .debug_frame        dtoi.o(m_a_pu.l)
+    0x00004c6c   0x0000004c   Dbug   RW   430     .debug_frame        defsig.o(c_a__un.l)
+    0x00004cb8   0x00000054   Dbug   RW   433     .debug_frame        strcmp.o(c_a__un.l)
+    0x00004d0c   0x00000044   Dbug   RW   435     .debug_frame        use_semi.o(c_a__un.l)
+    0x00004d50   0x00000048   Dbug   RW   437     .debug_frame        sys_wrch.o(c_a__un.l)
+    0x00000000   0x00000104   Dbug   RW    23     .debug_info         main.o
+    0x00000104   0x0000030c   Dbug   RW     6     .debug_info         main.o
+    0x00000410   0x00000058   Dbug   RW    76     .debug_info         startupSD.o
+    0x00000468   0x00000060   Dbug   RW    82     .debug_info         Init.o
+    0x000004c8   0x00000a08   Dbug   RW    86     .debug_info         Init.o
+    0x00000ed0   0x000003ec   Dbug   RW    90     .debug_info         Init.o
+    0x000012bc   0x0000007c   Dbug   RW   114     .debug_info         UART.o
+    0x00001338   0x00000060   Dbug   RW   123     .debug_info         UART.o
+    0x00001398   0x00000ebc   Dbug   RW   118     .debug_info         UART.o
+    0x00002254   0x000002e0   Dbug   RW   130     .debug_info         UART.o
+    0x00002534   0x0000012c   Dbug   RW   140     .debug_info         LCD.o
+    0x00002660   0x00002d8c   Dbug   RW   144     .debug_info         LCD.o
+    0x000053ec   0x00000220   Dbug   RW   156     .debug_info         LCD.o
+    0x0000560c   0x000000b0   Dbug   RW   165     .debug_info         Touch.o
+    0x000056bc   0x00002270   Dbug   RW   169     .debug_info         Touch.o
+    0x0000792c   0x000004f0   Dbug   RW   173     .debug_info         Touch.o
+    0x00007e1c   0x0000008c   Dbug   RW   183     .debug_info         Flash.o
+    0x00007ea8   0x00000ee0   Dbug   RW   187     .debug_info         Flash.o
+    0x00008d88   0x0000019c   Dbug   RW   191     .debug_info         Flash.o
+    0x00008f24   0x0000009c   Dbug   RW   200     .debug_info         RESM.o
+    0x00008fc0   0x00001ba0   Dbug   RW   204     .debug_info         RESM.o
+    0x0000ab60   0x00000224   Dbug   RW   212     .debug_info         RESM.o
+    0x0000ad84   0x00000068   Dbug   RW   218     .debug_info         EEP.o
+    0x0000adec   0x0000154c   Dbug   RW   222     .debug_info         EEP.o
+    0x0000c338   0x0000027c   Dbug   RW   226     .debug_info         EEP.o
+    0x0000c5b4   0x00000064   Dbug   RW   232     .debug_info         MEAS.o
+    0x0000c618   0x00001948   Dbug   RW   235     .debug_info         MEAS.o
+    0x0000df60   0x000008d0   Dbug   RW   242     .debug_info         MEAS.o
+    0x0000e830   0x00000068   Dbug   RW   252     .debug_info         COM.o
+    0x0000e898   0x0000103c   Dbug   RW   256     .debug_info         COM.o
+    0x0000f8d4   0x000000b0   Dbug   RW   260     .debug_info         COM.o
+    0x0000f984   0x000001e8   Dbug   RW   268     .debug_info         PARA.o
+    0x0000fb6c   0x000000d4   Dbug   RW   274     .debug_info         sysadj.o
+    0x0000fc40   0x00000bb8   Dbug   RW   278     .debug_info         sysadj.o
+    0x000107f8   0x00000134   Dbug   RW   282     .debug_info         sysadj.o
+    0x0001092c   0x00000178   Dbug   RW   288     .debug_info         DSP.o
+    0x00010aa4   0x00001b44   Dbug   RW   292     .debug_info         DSP.o
+    0x000125e8   0x00000064   Dbug   RW   296     .debug_info         DSP.o
+    0x00000000   0x0000011c   Dbug   RW     5     .debug_line         main.o
+    0x0000011c   0x0000002c   Dbug   RW    22     .debug_line         main.o
+    0x00000148   0x0000002c   Dbug   RW    26     .debug_line         main.o
+    0x00000174   0x0000002c   Dbug   RW    30     .debug_line         main.o
+    0x000001a0   0x0000002c   Dbug   RW    34     .debug_line         main.o
+    0x000001cc   0x0000002c   Dbug   RW    38     .debug_line         main.o
+    0x000001f8   0x0000002c   Dbug   RW    42     .debug_line         main.o
+    0x00000224   0x0000002c   Dbug   RW    46     .debug_line         main.o
+    0x00000250   0x0000002c   Dbug   RW    50     .debug_line         main.o
+    0x0000027c   0x0000002c   Dbug   RW    54     .debug_line         main.o
+    0x000002a8   0x0000002c   Dbug   RW    58     .debug_line         main.o
+    0x000002d4   0x00000030   Dbug   RW    62     .debug_line         main.o
+    0x00000304   0x0000002c   Dbug   RW    66     .debug_line         main.o
+    0x00000330   0x00000084   Dbug   RW    77     .debug_line         startupSD.o
+    0x000003b4   0x000000e8   Dbug   RW    81     .debug_line         Init.o
+    0x0000049c   0x000004c8   Dbug   RW    85     .debug_line         Init.o
+    0x00000964   0x000000b8   Dbug   RW   113     .debug_line         UART.o
+    0x00000a1c   0x0000039c   Dbug   RW   117     .debug_line         UART.o
+    0x00000db8   0x0000002c   Dbug   RW   122     .debug_line         UART.o
+    0x00000de4   0x00000108   Dbug   RW   139     .debug_line         LCD.o
+    0x00000eec   0x00000ae8   Dbug   RW   143     .debug_line         LCD.o
+    0x000019d4   0x00000124   Dbug   RW   164     .debug_line         Touch.o
+    0x00001af8   0x00000bb0   Dbug   RW   168     .debug_line         Touch.o
+    0x000026a8   0x000000f0   Dbug   RW   182     .debug_line         Flash.o
+    0x00002798   0x000004e4   Dbug   RW   186     .debug_line         Flash.o
+    0x00002c7c   0x000000d8   Dbug   RW   199     .debug_line         RESM.o
+    0x00002d54   0x000009e4   Dbug   RW   203     .debug_line         RESM.o
+    0x00003738   0x00000104   Dbug   RW   217     .debug_line         EEP.o
+    0x0000383c   0x000006e4   Dbug   RW   221     .debug_line         EEP.o
+    0x00003f20   0x00000130   Dbug   RW   231     .debug_line         MEAS.o
+    0x00004050   0x00000a74   Dbug   RW   234     .debug_line         MEAS.o
+    0x00004ac4   0x00000120   Dbug   RW   251     .debug_line         COM.o
+    0x00004be4   0x000006e8   Dbug   RW   255     .debug_line         COM.o
+    0x000052cc   0x0000011c   Dbug   RW   273     .debug_line         sysadj.o
+    0x000053e8   0x00000434   Dbug   RW   277     .debug_line         sysadj.o
+    0x0000581c   0x00000118   Dbug   RW   287     .debug_line         DSP.o
+    0x00005934   0x00000df8   Dbug   RW   291     .debug_line         DSP.o
+    0x00000000   0x000000c0   Dbug   RW     8     .debug_loc          main.o
+    0x000000c0   0x00000408   Dbug   RW    88     .debug_loc          Init.o
+    0x000004c8   0x000008a0   Dbug   RW   120     .debug_loc          UART.o
+    0x00000d68   0x00002b00   Dbug   RW   146     .debug_loc          LCD.o
+    0x00003868   0x00000e20   Dbug   RW   171     .debug_loc          Touch.o
+    0x00004688   0x00000938   Dbug   RW   189     .debug_loc          Flash.o
+    0x00004fc0   0x000012b0   Dbug   RW   206     .debug_loc          RESM.o
+    0x00006270   0x00000d24   Dbug   RW   224     .debug_loc          EEP.o
+    0x00006f94   0x000011bc   Dbug   RW   237     .debug_loc          MEAS.o
+    0x00008150   0x00000904   Dbug   RW   258     .debug_loc          COM.o
+    0x00008a54   0x00000650   Dbug   RW   280     .debug_loc          sysadj.o
+    0x000090a4   0x00001380   Dbug   RW   294     .debug_loc          DSP.o
+    0x00000000   0x00001180   Dbug   RW    25     .debug_macinfo      main.o
+    0x00001180   0x00000444   Dbug   RW    29     .debug_macinfo      main.o
+    0x000015c4   0x0000015c   Dbug   RW    33     .debug_macinfo      main.o
+    0x00001720   0x000007f4   Dbug   RW    37     .debug_macinfo      main.o
+    0x00001f14   0x00000328   Dbug   RW    41     .debug_macinfo      main.o
+    0x0000223c   0x0000020c   Dbug   RW    53     .debug_macinfo      main.o
+    0x00002448   0x000000fc   Dbug   RW    57     .debug_macinfo      main.o
+    0x00002544   0x00000320   Dbug   RW    61     .debug_macinfo      main.o
+    0x00002864   0x00000014   Dbug   RW    65     .debug_macinfo      main.o
+    0x00002878   0x00000718   Dbug   RW    69     .debug_macinfo      main.o
+    0x00002f90   0x000001f8   Dbug   RW    84     .debug_macinfo      Init.o
+    0x00003188   0x000001a8   Dbug   RW   116     .debug_macinfo      UART.o
+    0x00003330   0x000000e8   Dbug   RW   125     .debug_macinfo      UART.o
+    0x00003418   0x000002b4   Dbug   RW   142     .debug_macinfo      LCD.o
+    0x000036cc   0x0000021c   Dbug   RW   167     .debug_macinfo      Touch.o
+    0x000038e8   0x000004dc   Dbug   RW   175     .debug_macinfo      Touch.o
+    0x00003dc4   0x000001b8   Dbug   RW   185     .debug_macinfo      Flash.o
+    0x00003f7c   0x000001e8   Dbug   RW   202     .debug_macinfo      RESM.o
+    0x00004164   0x00000290   Dbug   RW   214     .debug_macinfo      RESM.o
+    0x000043f4   0x000001e8   Dbug   RW   220     .debug_macinfo      EEP.o
+    0x000045dc   0x00000280   Dbug   RW   233     .debug_macinfo      MEAS.o
+    0x0000485c   0x000001b8   Dbug   RW   254     .debug_macinfo      COM.o
+    0x00004a14   0x000001e0   Dbug   RW   276     .debug_macinfo      sysadj.o
+    0x00004bf4   0x00000328   Dbug   RW   290     .debug_macinfo      DSP.o
+    0x00000000   0x00000038   Dbug   RW     7     .debug_pubnames     main.o
+    0x00000038   0x0000008c   Dbug   RW    24     .debug_pubnames     main.o
+    0x000000c4   0x00000020   Dbug   RW    83     .debug_pubnames     Init.o
+    0x000000e4   0x000001b4   Dbug   RW    87     .debug_pubnames     Init.o
+    0x00000298   0x000001e8   Dbug   RW    91     .debug_pubnames     Init.o
+    0x00000480   0x00000020   Dbug   RW   115     .debug_pubnames     UART.o
+    0x000004a0   0x000001dc   Dbug   RW   119     .debug_pubnames     UART.o
+    0x0000067c   0x00000020   Dbug   RW   124     .debug_pubnames     UART.o
+    0x0000069c   0x0000013c   Dbug   RW   131     .debug_pubnames     UART.o
+    0x000007d8   0x00000058   Dbug   RW   141     .debug_pubnames     LCD.o
+    0x00000830   0x0000036c   Dbug   RW   145     .debug_pubnames     LCD.o
+    0x00000b9c   0x0000010c   Dbug   RW   157     .debug_pubnames     LCD.o
+    0x00000ca8   0x0000004c   Dbug   RW   166     .debug_pubnames     Touch.o
+    0x00000cf4   0x000002a8   Dbug   RW   170     .debug_pubnames     Touch.o
+    0x00000f9c   0x0000028c   Dbug   RW   174     .debug_pubnames     Touch.o
+    0x00001228   0x00000034   Dbug   RW   184     .debug_pubnames     Flash.o
+    0x0000125c   0x0000012c   Dbug   RW   188     .debug_pubnames     Flash.o
+    0x00001388   0x000000bc   Dbug   RW   192     .debug_pubnames     Flash.o
+    0x00001444   0x00000038   Dbug   RW   201     .debug_pubnames     RESM.o
+    0x0000147c   0x000002dc   Dbug   RW   205     .debug_pubnames     RESM.o
+    0x00001758   0x00000120   Dbug   RW   213     .debug_pubnames     RESM.o
+    0x00001878   0x00000020   Dbug   RW   219     .debug_pubnames     EEP.o
+    0x00001898   0x000001d0   Dbug   RW   223     .debug_pubnames     EEP.o
+    0x00001a68   0x0000014c   Dbug   RW   227     .debug_pubnames     EEP.o
+    0x00001bb4   0x000001cc   Dbug   RW   236     .debug_pubnames     MEAS.o
+    0x00001d80   0x000003c0   Dbug   RW   243     .debug_pubnames     MEAS.o
+    0x00002140   0x00000020   Dbug   RW   253     .debug_pubnames     COM.o
+    0x00002160   0x00000294   Dbug   RW   257     .debug_pubnames     COM.o
+    0x000023f4   0x00000054   Dbug   RW   261     .debug_pubnames     COM.o
+    0x00002448   0x000000ac   Dbug   RW   269     .debug_pubnames     PARA.o
+    0x000024f4   0x00000058   Dbug   RW   275     .debug_pubnames     sysadj.o
+    0x0000254c   0x000000c8   Dbug   RW   279     .debug_pubnames     sysadj.o
+    0x00002614   0x00000094   Dbug   RW   283     .debug_pubnames     sysadj.o
+    0x000026a8   0x00000068   Dbug   RW   289     .debug_pubnames     DSP.o
+    0x00002710   0x000003c8   Dbug   RW   293     .debug_pubnames     DSP.o
+    0x00002ad8   0x00000020   Dbug   RW   297     .debug_pubnames     DSP.o
+

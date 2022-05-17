@@ -1,0 +1,3 @@
+"Touch.c", line 109: Warning: C2809W: character sequence /* inside comment
+"Touch.c", line 459: Warning: C2870W: variable 'i' declared but not used
+Touch.c: 2 warnings, 0 errors, 0 serious errors

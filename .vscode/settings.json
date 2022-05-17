@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "UART.C": "cpp",
+        "RESM.H": "cpp",
+        "RESM.C": "cpp",
+        "DSP.C": "cpp",
+        "COM.C": "cpp",
+        "LCD.C": "cpp"
+    }
+}

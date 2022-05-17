@@ -1,0 +1,18 @@
+#ifdef	_SYSADJ_C_
+u16 blkRED, blkGRN, blkBLU;
+u16 whtRED, whtGRN, whtBLU;
+
+void system_check(void);
+
+void run_meas_adj(u16 YS, u16 YE);
+void run_adjust(void);
+void out_check(void);
+
+#else
+extern u16 blkRED, blkGRN, blkBLU;
+extern u16 whtRED, whtGRN, whtBLU;
+
+extern void system_check(void);
+extern void run_adjust(void);
+
+#endif
